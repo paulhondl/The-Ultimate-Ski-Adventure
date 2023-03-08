@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="icon" href="./assets/favicon_ski.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <title>Ski Adventure</title>
+</head>
+
+<body>
+  <button type="button" id="btn-scroll-top"><span class="material-symbols-outlined">
+    arrow_upward
+    </span></button>
+  <div class="form-banner-wrapper">
+   <form>
+    <h2>Register for the ultimate ski adventure</h2>
+    <section class="user-data">
+      <h3>Your basic info</h3>
+      <label for="full-name">Name and surname <span class="required">*</span></label>
+      <input required type="text" id="full-name" >
+      <div class="email-password-wrapper">
+        <div class="email-wrapper">
+          <label for="email">Email <span class="required">*</span></label>
+          <input required type="email" id="email"  placeholder="example@mail.com">
+          <small class="warning">this field is required</small>
+        </div>
+        <div class="password-wrapper">
+          <label for="password">Password <span class="required">*</span></label>
+          <input required type="password" id="password" placeholder="****">
+        </div>
+      </div>
+      <label class="age-label">Age</label>
+      <label class="age-radio-label"><input type="radio" name="age"> Under 18</label>
+      <label class="age-radio-label"><input type="radio" name="age"> 18 and over</label>
+      
+    </section>
+    <section class="user-preferences">
+      <h3>Tell us about yourself</h3>
+      <label for="user-bio">Your biography</label>
+      <textarea rows="3" placeholder="" title="bio" id="user-bio"></textarea>
+      <label for="select-location">Select location
+        <select id="select-location">
+          <option>Mayrhofen</option>
+          <option>Schladming</option>
+        </select>
+      </label>
+      <label class="equipment-label">What equipment would you like to rent?</label>
+      <label class="equipment-checkbox-label">
+        <input type="checkbox">
+        <span class="actual-checkbox"></span>
+        Skis
+      </label>
+      <label class="equipment-checkbox-label">
+        <input type="checkbox"> 
+        <span class="actual-checkbox"></span>
+        Helmet
+      </label>
+      <label class="equipment-checkbox-label">
+        <input type="checkbox">
+        <span class="actual-checkbox"></span>
+        Goggles
+      </label>
+      <label class="equipment-checkbox-label">
+        <input type="checkbox">
+        <span class="actual-checkbox"></span>
+        Ski Boots
+      </label>
+      <label class="equipment-checkbox-label">
+        <input type="checkbox">
+        <span class="actual-checkbox"></span>
+        Ski Poles
+      </label>
+    </section>
+    <div class="buttons-wrapper">
+      <button type="reset">Reset</button>
+      <button type="submit">Submit</button>
+    </div>
+   </form>
+   <div class="banner">
+    <h1>Epic experience <br>in the snow</h1>
+   </div>
+  </div>
+  <script>
+
+    const buttonScrollTop = document.getElementById("btn-scroll-top");
+
+    buttonScrollTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      })
+    })
+
+    window.addEventListener("scroll", () => {
+      if(window.innerWidth < 1000) {
+        buttonScrollTop.style.display = "none";
+      } else {
+        buttonScrollTop.style.display = "initial";
+        if (window.scrollY !== 0) {
+          buttonScrollTop.style.opacity = 1;
+        } else {
+          buttonScrollTop.style.opacity = 0;
+        }
+      }
+    })
+
+    window.addEventListener("resize", () => {
+      if(window.innerWidth < 1000) {
+        buttonScrollTop.style.display = "none";
+      }
+    })
+    
+  </script>
+</body>
+
+</html>

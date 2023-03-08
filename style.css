@@ -1,0 +1,359 @@
+:root {
+  --dark-blue: #3E416D;
+  --light-blue: #E2E5ED;
+  --regular-white: #FFFFFF;
+  --secondary-green: #149770;
+  --margin-big: 64px;
+  --label-margin-bottom: 16px;
+  --input-padding-left: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  /* height: 100%; */
+  /* width: 100%; */
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: calc(15px + 0.390625vw); 
+  /* makes font-size scale with viewport widh and thus responsive */
+}
+
+/* Scroll To Top Button */
+
+.material-symbols-outlined {
+  font-size: 30px;
+  display: grid;
+  place-items: center;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
+#btn-scroll-top {
+  display: grid;
+  place-items: center;
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: var(--dark-blue);
+  color: var(--light-blue);
+  position: fixed;
+  left: 2em;
+  bottom: 2em;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.form-banner-wrapper {
+  margin: 0 auto;
+  width: 80%;
+  /* height: 100vh; */
+  display: flex;
+}
+
+/* FORM */
+
+form {
+  width: 70%;
+  padding: 50px 50px;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  width: 100%;
+  font-family: inherit;
+  /* font-size: 20px; */
+  font-size: 1rem;
+  color: var(--dark-blue);
+  background: var(--light-blue);
+  border-radius: 8px;
+  border: none;
+  padding-block: 8px;
+  padding-left: var(--input-padding-left);
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+
+input:focus,
+input:active,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--dark-blue);
+}
+
+
+
+input::placeholder {
+  color: #979797;
+}
+
+form h2 {
+  /* font-size:  30px; */
+  font-size: 1.875rem;
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+
+/* SECTION USER DATA */
+
+form h3 {
+  font-weight: 400;
+  /* font-size: 24px; */
+  font-size: 1.5rem;
+  margin-top: 48px;
+}
+
+.required {
+  position: relative;
+  top: -10px;
+}
+
+label[for="full-name"] {
+  display: block;
+}
+
+input#full-name {
+  display: block;
+}
+
+.email-password-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.email-password-wrapper > * {
+  flex: 1 1 0;
+}
+
+.warning {
+  /* font-size: 12px; */
+  font-size: 0.75rem;
+  color: red;
+  position: relative;
+  top: -30px;
+}
+
+input[required]:valid {
+  outline: 2px solid green;
+}
+
+.age-label {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+/* Resetting Radio Buttons */
+/* Source: https://moderncss.dev/pure-css-custom-styled-radio-buttons/ */
+
+.age-radio-label {
+  margin-bottom: 8px;
+  display: grid;
+  grid-template-columns: 1em auto;
+  column-gap: 0.75em;
+}
+
+input[type="radio"] {
+  appearance: none;
+  background-color: var(--light-blue);
+  color: var(--light-blue);
+  margin: 0;
+  font: inherit;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  /* transform: translateY(-0.075em); */
+  display: grid;
+  place-content: center;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  /* transition: 120ms transform ease-in-out; */
+  box-shadow: inset 1em 1em var(--dark-blue);
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+/* SECTION USER PREFERENCES */
+
+textarea {
+  resize: none;
+}
+
+/* Resetting Select Dropdown Arrow */
+/* Source: https://fabriceleven.com/design/clever-way-to-change-the-drop-down-selector-arrow-icon/ */
+
+label[for="select-location"] {
+  width: 100%;
+  position: relative;
+}
+
+select {
+  appearance: none;
+}
+
+label[for="select-location"]:after {
+  content: '▼'; /* &#x25BC; ▼ */
+  /* font-size: 20px; */
+  font-size: 1rem;
+  color: var(--dark-blue);
+  right: 8px;
+  top: 50%;
+  transform: translateY(-35%);
+  position: absolute;
+  pointer-events: none;
+}
+
+section.user-preferences {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Resetting Checkboxes */
+
+.equipment-label {
+  margin-bottom: 12px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.equipment-checkbox-label {
+  display: inline-flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.actual-checkbox {
+  width: 1em;
+  height: 1em;
+  border-radius: 0.1em;
+  border: 0.15em solid var(--light-blue);
+  display: grid;
+  place-content: center;
+  transition: background-color 200ms, border-color 200ms;
+}
+
+input[type="checkbox"]:checked + .actual-checkbox {
+  background-color: var(--dark-blue);
+  border-color: var(--dark-blue);
+}
+
+.actual-checkbox::before {
+  content: "\2714";
+  color: white;
+  transform: scale(0);
+  transition: transform 200ms;
+}
+
+input[type="checkbox"]:checked + .actual-checkbox::before {
+  transform: scale(1);
+}
+
+.buttons-wrapper {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+button {
+  padding-block: 8px;
+  border-radius: 8px;
+  flex: 1 1 0;
+  /* font-size: 20px; */
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button[type="reset"] {
+  background-color: var(--regular-white);
+  border: 1.5px solid black;
+}
+
+button[type="submit"] {
+  background-color: var(--secondary-green);
+  color: var(--regular-white);
+  border: none;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.85;
+}
+
+button[type="reset"]:hover {
+  border-color: darkred;
+  color: darkred;
+}
+
+button:active {
+  transform: scale(0.975);
+}
+
+
+
+/* BANNER */
+
+.banner {
+  width: 40%;
+  background-image: url(./assets/ski.jpeg);
+  background-size: cover;
+  background-position-x: 85%;
+}
+
+.banner h1 {
+  color: white;
+  width: 80%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* font-size: 40px; */
+  font-size: 2.25rem;
+  font-weight: 500;
+  margin-top: 160px;
+  margin-left: 30px;
+}
+
+@media (max-width: 1000px) {
+
+  .form-banner-wrapper {
+    width: 100%;
+  }
+
+  .email-password-wrapper {
+    display: contents;
+  }
+}
+
+@media (max-width: 600px) {
+
+  form {
+    width: 100%;
+  }
+
+  .banner {
+    display: none;
+  }
+
+  .buttons-wrapper {
+    flex-direction: column;
+  }
+}
